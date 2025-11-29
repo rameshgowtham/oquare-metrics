@@ -1,0 +1,2075 @@
+@prefix : <http://www.semanticweb.org/aswat/ontologies/2025/0/untitled-ontology-16/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://www.amrita.edu/ontologies/fss> .
+
+<http://www.amrita.edu/ontologies/fss> rdf:type owl:Ontology ;
+                                        dcterms:description "The ontology establishes a structured knowledge framework that supports the efficient management, operation, and continuous improvement of institutional food service systems. It organizes and interrelates core data elements, including ingredients, menus, nutritional standards, food safety regulations, operational workflows, resource utilization, cost factors, and service performance outcomes."@en ;
+                                        dcterms:license <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
+                                        dcterms:title "Institutional Food Service Management"@en ;
+                                        <http://purl.org/vocab/vann/preferredNamespacePrefix> "ifsm"@en ;
+                                        <http://purl.org/vocab/vann/preferredNamespaceUri> : .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+dcterms:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.amrita.edu/ontologies/fss#basedOn
+:basedOn rdf:type owl:ObjectProperty ;
+         rdfs:range :FinancialManagement .
+
+
+###  http://www.amrita.edu/ontologies/fss#carriesRiskof
+:carriesRiskof rdf:type owl:ObjectProperty ,
+                        owl:AsymmetricProperty ;
+               rdfs:domain :FoodService ;
+               rdfs:range :FoodContaminants .
+
+
+###  http://www.amrita.edu/ontologies/fss#compliesWith
+:compliesWith rdf:type owl:ObjectProperty ,
+                       owl:AsymmetricProperty ;
+              rdfs:domain :FoodPurchase ;
+              rdfs:range <http://www.amrita.edu/ontologies/fss#FoodStandards&Regulation> .
+
+
+###  http://www.amrita.edu/ontologies/fss#dependsOn
+:dependsOn rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#guidedBy
+:guidedBy rdf:type owl:ObjectProperty ,
+                   owl:AsymmetricProperty ;
+          rdfs:domain :FoodProduction ;
+          rdfs:range :MenuPlanning .
+
+
+###  http://www.amrita.edu/ontologies/fss#hasAttribute
+:hasAttribute rdf:type owl:ObjectProperty ;
+              rdfs:range :Quantity .
+
+
+###  http://www.amrita.edu/ontologies/fss#hasEquipmentType
+:hasEquipmentType rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Equipments ;
+                  rdfs:range :EquipmentType .
+
+
+###  http://www.amrita.edu/ontologies/fss#hasMaintainence
+:hasMaintainence rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Equipments ;
+                 rdfs:range :Maintanence .
+
+
+###  http://www.amrita.edu/ontologies/fss#hasMethods
+:hasMethods rdf:type owl:ObjectProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain :WasteManagement ;
+            rdfs:range :Method .
+
+
+###  http://www.amrita.edu/ontologies/fss#hasModeofOperation
+:hasModeofOperation rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Equipments ;
+                    rdfs:range :ModeofOperation .
+
+
+###  http://www.amrita.edu/ontologies/fss#hasOrderofUse
+:hasOrderofUse rdf:type owl:ObjectProperty ;
+               rdfs:domain :Equipments ,
+                           :KitchenEssentials ;
+               rdfs:range :OrderofUse .
+
+
+###  http://www.amrita.edu/ontologies/fss#impacts
+:impacts rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#improves
+:improves rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#involves
+:involves rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#isNeededby
+:isNeededby rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#isOutcomeOf
+:isOutcomeOf rdf:type owl:ObjectProperty ;
+             rdfs:domain :FoodDelivery ,
+                         :FoodProduction ;
+             rdfs:range :FoodProduction ,
+                        :FoodPurchase .
+
+
+###  http://www.amrita.edu/ontologies/fss#keepRecordof
+:keepRecordof rdf:type owl:ObjectProperty ;
+              rdfs:domain :InventoryManagement .
+
+
+###  http://www.amrita.edu/ontologies/fss#leavesTraceIn
+:leavesTraceIn rdf:type owl:ObjectProperty ,
+                        owl:AsymmetricProperty ;
+               rdfs:domain :FoodProduction ;
+               rdfs:range :StorageFacility .
+
+
+###  http://www.amrita.edu/ontologies/fss#memberOf
+:memberOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#mitigates
+:mitigates rdf:type owl:ObjectProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain :FoodProduction ;
+           rdfs:range :FoodContaminants .
+
+
+###  http://www.amrita.edu/ontologies/fss#necessitates
+:necessitates rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#operatesAs
+:operatesAs rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :FoodDelivery ;
+            rdfs:range :FoodService .
+
+
+###  http://www.amrita.edu/ontologies/fss#originateFrom
+:originateFrom rdf:type owl:ObjectProperty ;
+               rdfs:domain :TypesofWaste .
+
+
+###  http://www.amrita.edu/ontologies/fss#partOf
+:partOf rdf:type owl:ObjectProperty ,
+                 owl:SymmetricProperty ;
+        rdfs:domain :PhysicalEntity ;
+        rdfs:range :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#regulates
+:regulates rdf:type owl:ObjectProperty .
+
+
+###  http://www.amrita.edu/ontologies/fss#resultsIn
+:resultsIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :FoodProduction .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.amrita.edu/ontologies/fss#ABCAnalysis
+:ABCAnalysis rdf:type owl:Class ;
+             rdfs:subClassOf :InventoryManagement ;
+             rdfs:comment "Categorizes items by value and usage (A=high value, C=low value)." ;
+             rdfs:label "ABC Analysis" .
+
+
+###  http://www.amrita.edu/ontologies/fss#AlaCarte
+:AlaCarte rdf:type owl:Class ;
+          rdfs:subClassOf :Types ;
+          rdfs:comment "“A la carte” is a French term that translates to “on the card'. Represents a menu type where each dish is priced and ordered separately." ;
+          rdfs:label "À la Carte" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Appearance
+:Appearance rdf:type owl:Class ;
+            rdfs:subClassOf :Sensory .
+
+
+###  http://www.amrita.edu/ontologies/fss#Aroma
+:Aroma rdf:type owl:Class ;
+       rdfs:subClassOf :Sensory .
+
+
+###  http://www.amrita.edu/ontologies/fss#AutomaticChapathiMaker
+:AutomaticChapathiMaker rdf:type owl:Class ;
+                        rdfs:subClassOf :Equipments ;
+                        rdfs:label "Automatic Chapathi Maker" .
+
+
+###  http://www.amrita.edu/ontologies/fss#AutomaticCommercialVadaMakingMachine
+:AutomaticCommercialVadaMakingMachine rdf:type owl:Class ;
+                                      rdfs:subClassOf :Equipments ;
+                                      rdfs:label "Automatic Commercial Vada Making Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#AutomaticDosaMakingMachine
+:AutomaticDosaMakingMachine rdf:type owl:Class ;
+                            rdfs:subClassOf :Equipments ;
+                            rdfs:label "Automatic Dosa Making Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#BainMarie
+:BainMarie rdf:type owl:Class ;
+           rdfs:subClassOf :Equipments ,
+                           :KitchenEssentials ;
+           rdfs:comment "A Bain Marie, also known as a water bath, operates by using indirect heat (hot water or steam) to keep food warm without overcooking or drying it out." ;
+           rdfs:label "Bain Marie" .
+
+
+###  http://www.amrita.edu/ontologies/fss#BakePan
+:BakePan rdf:type owl:Class ;
+         rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Baking
+:Baking rdf:type owl:Class ;
+        rdfs:subClassOf :DryHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#BanquetService
+:BanquetService rdf:type owl:Class ;
+                rdfs:subClassOf :SpecialOccasions ;
+                rdfs:label "Banquet Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#BatchCookingMethod
+:BatchCookingMethod rdf:type owl:Class ;
+                    rdfs:subClassOf :InventoryManagement ;
+                    rdfs:comment "Prepares food in set quantities to optimize labor and reduce waste." ;
+                    rdfs:label "Batch Cooking Method" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Biodegradable
+:Biodegradable rdf:type owl:Class ;
+               rdfs:subClassOf :TypesofWaste ;
+               rdfs:comment "Biodegradable waste includes items that break down naturally, like vegetable peels, leftover food, and paper napkins." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Biological
+:Biological rdf:type owl:Class ;
+            rdfs:subClassOf :FoodContaminants ;
+            rdfs:comment "Biological contaminants include bacteria, viruses, or parasites that can cause food-related diseases if not handled properly." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Blanching
+:Blanching rdf:type owl:Class ;
+           rdfs:subClassOf :MoistHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#BlanketOrderPurchase
+:BlanketOrderPurchase rdf:type owl:Class ;
+                      rdfs:subClassOf :FoodPurchase ;
+                      rdfs:comment "An agreement that is being placed to provide a specific quantity of listed materials for a period, at an agreed price." ;
+                      rdfs:label "Blanket Order Purchase" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Boiling
+:Boiling rdf:type owl:Class ;
+         rdfs:subClassOf :MoistHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#BoxGrater
+:BoxGrater rdf:type owl:Class ;
+           rdfs:subClassOf :KitchenEssentials ;
+           rdfs:label "Box Grater" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Braiser
+:Braiser rdf:type owl:Class ;
+         rdfs:subClassOf :KitchenEssentials ;
+         rdfs:comment "A heavy, lidded pan used for braising (slow-cooking food in a small amount of liquid)." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Braising
+:Braising rdf:type owl:Class ;
+          rdfs:subClassOf :Combination .
+
+
+###  http://www.amrita.edu/ontologies/fss#BreadKnife
+:BreadKnife rdf:type owl:Class ;
+            rdfs:subClassOf :Knives .
+
+
+###  http://www.amrita.edu/ontologies/fss#BuffetKitchen
+:BuffetKitchen rdf:type owl:Class ;
+               rdfs:subClassOf :FoodDelivery ;
+               rdfs:comment "Represents a self-service delivery method where customers serve themselves from displayed food items." ;
+               rdfs:label "Buffet Kitchen" .
+
+
+###  http://www.amrita.edu/ontologies/fss#BuffetService
+:BuffetService rdf:type owl:Class ;
+               rdfs:subClassOf :SelfService ;
+               rdfs:label "Buffet Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#BulkDelivery
+:BulkDelivery rdf:type owl:Class ;
+              rdfs:subClassOf :FoodDelivery ;
+              rdfs:comment "Represents a mass meal distribution system where food is prepared in large quantities and delivered in bulk containers to the point of service." ;
+              rdfs:label "Bulk Delivery" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CafeteriaService
+:CafeteriaService rdf:type owl:Class ;
+                  rdfs:subClassOf :SelfService ;
+                  rdfs:label "Cafeteria Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CanOpener
+:CanOpener rdf:type owl:Class ;
+           rdfs:subClassOf :KitchenEssentials ;
+           rdfs:label "Can Opener" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CapacityBuilding
+:CapacityBuilding rdf:type owl:Class ;
+                  rdfs:subClassOf :StaffTraining ;
+                  rdfs:comment "represents initiatives and programs aimed at enhancing employees’ professional competence and organizational contribution. It includes areas in which staff can be trained to improve technical skills, management abilities, and overall job performance, thereby promoting professional growth and institutional efficiency." ;
+                  rdfs:label "Capacity Building" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Cartons
+:Cartons rdf:type owl:Class ;
+         rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#ChafingDish
+:ChafingDish rdf:type owl:Class ;
+             rdfs:subClassOf :KitchenEssentials ;
+             rdfs:comment "A portable, heat-retaining serving vessel used to keep cooked food warm during service or buffet operations." ;
+             rdfs:label "Chafing Dish" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Characteristics
+:Characteristics rdf:type owl:Class .
+
+
+###  http://www.amrita.edu/ontologies/fss#Chemical
+:Chemical rdf:type owl:Class ;
+          rdfs:subClassOf :FoodContaminants ;
+          rdfs:comment """Chemical Contaminants can come from pesticides, cleaning agents, or food
+additives.""" .
+
+
+###  http://www.amrita.edu/ontologies/fss#ChickenBone
+:ChickenBone rdf:type owl:Class ;
+             rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#ChickenFeet
+:ChickenFeet rdf:type owl:Class ;
+             rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#ChinaCap
+:ChinaCap rdf:type owl:Class ;
+          rdfs:subClassOf :KitchenEssentials ;
+          rdfs:label "China Cap" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Cleaning
+:Cleaning rdf:type owl:Class ;
+          rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#CoconutShell
+:CoconutShell rdf:type owl:Class ;
+              rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#ColdRoom
+:ColdRoom rdf:type owl:Class ;
+          rdfs:subClassOf :Equipments ;
+          rdfs:comment "a temperature-controlled storage facility designed to preserve perishable food items." ;
+          rdfs:label "Cold Room" .
+
+
+###  http://www.amrita.edu/ontologies/fss#ColdStorage
+:ColdStorage rdf:type owl:Class ;
+             rdfs:subClassOf :StorageFacility ;
+             rdfs:comment "Represents temperature-controlled storage areas used to preserve perishable foods such as dairy, meat, fruits, and vegetables." ;
+             rdfs:label "Cold Storage" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Combination
+:Combination rdf:type owl:Class ;
+             rdfs:subClassOf :Production ;
+             rdfs:comment "It refers to the production technique that involves both Dry heat and Moist heat for preparation of the food." .
+
+
+###  http://www.amrita.edu/ontologies/fss#CombinationMenu
+:CombinationMenu rdf:type owl:Class ;
+                 rdfs:subClassOf :Types ;
+                 rdfs:comment "Represents a type of menu that includes a combination of 2 or more menu types." ;
+                 rdfs:label "Combination Menu" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialAutomaticBreadSlicer
+:CommercialAutomaticBreadSlicer rdf:type owl:Class ;
+                                rdfs:subClassOf :Equipments ;
+                                rdfs:label "Commercial Automatic Bread Slicer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialCoconutScraper
+:CommercialCoconutScraper rdf:type owl:Class ;
+                          rdfs:subClassOf :Equipments ;
+                          rdfs:label "Commercial Coconut Scraper" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialCookingRange
+:CommercialCookingRange rdf:type owl:Class ;
+                        rdfs:subClassOf :Equipments ;
+                        rdfs:label "Commercial Cooking Range" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialCookingRangeThermometer
+:CommercialCookingRangeThermometer rdf:type owl:Class ;
+                                   rdfs:subClassOf :Equipments ;
+                                   rdfs:label "Commercial Cooking Range Thermometer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialDishwasher
+:CommercialDishwasher rdf:type owl:Class ;
+                      rdfs:subClassOf :Equipments ;
+                      rdfs:label "Commercial Dishwasher" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialFoodWarmer
+:CommercialFoodWarmer rdf:type owl:Class ;
+                      rdfs:subClassOf :Equipments ;
+                      rdfs:label "Commercial Food Warmer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialHoodKitchenChimney
+:CommercialHoodKitchenChimney rdf:type owl:Class ;
+                              rdfs:subClassOf :Equipments ;
+                              rdfs:label "Commercial Hood Kitchen Chimney" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialIdiyappamMachine
+:CommercialIdiyappamMachine rdf:type owl:Class ;
+                            rdfs:subClassOf :Equipments ;
+                            rdfs:label "Commercial Idiyappam Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialIdliSteamer
+:CommercialIdliSteamer rdf:type owl:Class ;
+                       rdfs:subClassOf :Equipments ;
+                       rdfs:label "Commercial Idli Steamer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialJuiceDispenser
+:CommercialJuiceDispenser rdf:type owl:Class ;
+                          rdfs:subClassOf :Equipments ;
+                          rdfs:label "Commercial Juice Dispenser" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialJuicer
+:CommercialJuicer rdf:type owl:Class ;
+                  rdfs:subClassOf :Equipments ;
+                  rdfs:label "Commercial Juicer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialKitchenMasalaTrolley
+:CommercialKitchenMasalaTrolley rdf:type owl:Class ;
+                                rdfs:subClassOf :Equipments ;
+                                rdfs:label "Commercial Kitchen Masala Trolley" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialKitchenTrolley
+:CommercialKitchenTrolley rdf:type owl:Class ;
+                          rdfs:subClassOf :Equipments ;
+                          rdfs:label "Commercial Kitchen Trolley" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialOTGOven
+:CommercialOTGOven rdf:type owl:Class ;
+                   rdfs:subClassOf :Equipments ;
+                   rdfs:label "Commercial OTG Oven" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialPotatoPeeler
+:CommercialPotatoPeeler rdf:type owl:Class ;
+                        rdfs:subClassOf :Equipments ;
+                        rdfs:label "Commercial Potato Peeler" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialRefrigeratedDisplayCases
+:CommercialRefrigeratedDisplayCases rdf:type owl:Class ;
+                                    rdfs:subClassOf :Equipments ;
+                                    rdfs:label "Commercial Refrigerated Display Cases" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialTeaCoffeeVendingMachine
+:CommercialTeaCoffeeVendingMachine rdf:type owl:Class ;
+                                   rdfs:subClassOf :Equipments ;
+                                   rdfs:label "Commercial Tea Coffee Vending Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialWaterDispenser
+:CommercialWaterDispenser rdf:type owl:Class ;
+                          rdfs:subClassOf :Equipments ;
+                          rdfs:label "Commercial Water Dispenser" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CommercialWetGrinderMachine
+:CommercialWetGrinderMachine rdf:type owl:Class ;
+                             rdfs:subClassOf :Equipments ;
+                             rdfs:label "Commercial Wet Grinder Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Composting
+:Composting rdf:type owl:Class ;
+            rdfs:subClassOf :Method ;
+            rdfs:comment "Composting is a natural process that turns biodegradable and organic waste into nutrient-rich soil, making it a great, eco-friendly option." .
+
+
+###  http://www.amrita.edu/ontologies/fss#ContaminatedEquipment
+:ContaminatedEquipment rdf:type owl:Class ;
+                       rdfs:subClassOf :SourcesofFoodBorneIllness ;
+                       rdfs:label "Contaminated Equipment" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Contract
+:Contract rdf:type owl:Class ;
+          rdfs:subClassOf :FoodproductionType ;
+          rdfs:comment "Food production system operates with the help of a contract between the customer and the food service provider." .
+
+
+###  http://www.amrita.edu/ontologies/fss#ContractCatering
+:ContractCatering rdf:type owl:Class ;
+                  rdfs:subClassOf :FoodService ;
+                  rdfs:comment "An operated food service system where an external agency manages meal production and distribution based on an institutional contract." ;
+                  rdfs:label "Contract Catering" .
+
+
+###  http://www.amrita.edu/ontologies/fss#ContractPurchasing
+:ContractPurchasing rdf:type owl:Class ;
+                    rdfs:subClassOf :FoodPurchase ;
+                    rdfs:comment "The technique being used here is assisting the buyer and the supplier, to analyse the repeatedly used materials and improve the reordering patterns with minimal cost." ;
+                    rdfs:label "Contract Purchasing" .
+
+
+###  http://www.amrita.edu/ontologies/fss#ContractedScheduled
+:ContractedScheduled rdf:type owl:Class ;
+                     rdfs:subClassOf :FoodDelivery ;
+                     rdfs:comment "Involves meals delivered at predetermined times through external or internal contracts (e.g., meal suppliers to hospitals or schools)." ;
+                     rdfs:label "Contracted Scheduled" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Convenience
+:Convenience rdf:type owl:Class ;
+             rdfs:subClassOf :FoodproductionType ;
+             rdfs:comment "The usage of pre-prepared or pre-portioned food and ingredients from the markets." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Conventional
+:Conventional rdf:type owl:Class ;
+              rdfs:subClassOf :FoodproductionType ;
+              rdfs:comment "The processing from raw materials to the final product happens within the food service establishment." .
+
+
+###  http://www.amrita.edu/ontologies/fss#ConvothermOven
+:ConvothermOven rdf:type owl:Class ;
+                rdfs:subClassOf :Equipments ;
+                rdfs:label "Convotherm Oven" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CookChillSystem
+:CookChillSystem rdf:type owl:Class ;
+                 rdfs:subClassOf :FoodproductionType ;
+                 rdfs:comment "Conventional cooking within a central production unit followed by distribution of foods. This portioned food is then being chilled and stored for use when required." ;
+                 rdfs:label "Cook Chill System" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CookFreeze
+:CookFreeze rdf:type owl:Class ;
+            rdfs:subClassOf :FoodproductionType ;
+            rdfs:comment "The production of foods for an instant quick freezing (IQF) Technology as large amounts of food items can be prepared and stored for longer time as it can retain the nutritional and other qualities." ;
+            rdfs:label "Cook Freeze" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Cooking
+:Cooking rdf:type owl:Class ;
+         rdfs:subClassOf :OrderofUse ;
+         rdfs:comment "Used during cooking processes such as boiling, baking, or frying." .
+
+
+###  http://www.amrita.edu/ontologies/fss#CookingDefect
+:CookingDefect rdf:type owl:Class ;
+               rdfs:subClassOf :SourcesofFoodBorneIllness ;
+               rdfs:label "Cooking Defect" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Cooling
+:Cooling rdf:type owl:Class ;
+         rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#Corer
+:Corer rdf:type owl:Class ;
+       rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#CounterService
+:CounterService rdf:type owl:Class ;
+                rdfs:subClassOf :SelfService ;
+                rdfs:label "Counter Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CrockPot
+:CrockPot rdf:type owl:Class ;
+          rdfs:subClassOf :KitchenEssentials ;
+          rdfs:label "Crock Pot" .
+
+
+###  http://www.amrita.edu/ontologies/fss#CryogenicChill
+:CryogenicChill rdf:type owl:Class ;
+                rdfs:subClassOf :FoodproductionType ;
+                rdfs:comment "Cryogenic gases like nitrogen and carbon dioxide are used to create an inert atmosphere around the food product as well as produce low temperature when formed as a refrigerant." ;
+                rdfs:label "Cryogenic Chill" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Cups
+:Cups rdf:type owl:Class ;
+      rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Cutting
+:Cutting rdf:type owl:Class ;
+         rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#CuttingBoard
+:CuttingBoard rdf:type owl:Class ;
+              rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Cyclic
+:Cyclic rdf:type owl:Class ;
+        rdfs:subClassOf :Types ;
+        rdfs:comment "A planned set of menus that repeat in a defined cycle (weekly, fortnightly, monthly)." .
+
+
+###  http://www.amrita.edu/ontologies/fss#DailyMaintanence
+:DailyMaintanence rdf:type owl:Class ;
+                  rdfs:subClassOf :Maintanence ;
+                  rdfs:comment "Basic cleaning, inspection, and lubrication performed every day after use." ;
+                  rdfs:label "Daily Maintanence" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Departments
+:Departments rdf:type owl:Class ;
+             rdfs:subClassOf :PersonnelManagement ;
+             rdfs:comment "The organizational divisions within an institutional food service unit that oversee administrative, infrastructural, and logistical operations." .
+
+
+###  http://www.amrita.edu/ontologies/fss#DessertSpoon
+:DessertSpoon rdf:type owl:Class ;
+              rdfs:subClassOf :Spoon .
+
+
+###  http://www.amrita.edu/ontologies/fss#Dessertfork
+:Dessertfork rdf:type owl:Class ;
+             rdfs:subClassOf :Fork .
+
+
+###  http://www.amrita.edu/ontologies/fss#DirectDelivery
+:DirectDelivery rdf:type owl:Class ;
+                rdfs:subClassOf :FoodPurchase ;
+                rdfs:comment "The method of involving the practice of buying the food or beverages from the supplier itself." ;
+                rdfs:label "Direct Delivery" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Disposable
+:Disposable rdf:type owl:Class ;
+            rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#DoubleJacketedSteamBoiler
+:DoubleJacketedSteamBoiler rdf:type owl:Class ;
+                           rdfs:subClassOf :Equipments ;
+                           rdfs:label "Double Jacketed Steam Boiler" .
+
+
+###  http://www.amrita.edu/ontologies/fss#DoubleJacketedSteamingKettle
+:DoubleJacketedSteamingKettle rdf:type owl:Class ;
+                              rdfs:subClassOf :Equipments ;
+                              rdfs:label "Double Jacketed Steaming Kettle" .
+
+
+###  http://www.amrita.edu/ontologies/fss#DoughPreparation
+:DoughPreparation rdf:type owl:Class ;
+                  rdfs:subClassOf :Pre-Production ;
+                  rdfs:label "Dough Preparation" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Doughkneader
+:Doughkneader rdf:type owl:Class ;
+              rdfs:subClassOf :Equipments ;
+              rdfs:label "Dough Kneader" .
+
+
+###  http://www.amrita.edu/ontologies/fss#DryHeat
+:DryHeat rdf:type owl:Class ;
+         rdfs:subClassOf :Production ;
+         rdfs:comment "Cooking methods that apply heat without water or steam as the primary medium. Dry heat techniques, such as roasting, grilling, baking, and toasting, rely on air, fat, or direct contact with hot surfaces to transfer heat, producing characteristic flavors, textures, and browning reactions." .
+
+
+###  http://www.amrita.edu/ontologies/fss#DryStorage
+:DryStorage rdf:type owl:Class ;
+            rdfs:subClassOf :StorageFacility ;
+            rdfs:label "Dry Storage" ,
+                       "Refers to ambient storage for non-perishable items like grains, pulses, canned goods, and spices." .
+
+
+###  http://www.amrita.edu/ontologies/fss#DuJour
+:DuJour rdf:type owl:Class ;
+        rdfs:subClassOf :Types ;
+        rdfs:comment "Refers to daily changing menus based on seasonal or available ingredients." .
+
+
+###  http://www.amrita.edu/ontologies/fss#EOQMethod
+:EOQMethod rdf:type owl:Class ;
+           rdfs:subClassOf :InventoryManagement ;
+           rdfs:comment "Optimizes order quantity to balance ordering costs and holding costs." ;
+           rdfs:label "EOQ Method" .
+
+
+###  http://www.amrita.edu/ontologies/fss#EffluentTreatment
+:EffluentTreatment rdf:type owl:Class ;
+                   rdfs:subClassOf :Method ;
+                   rdfs:comment "Effluent treatment is used for liquid waste, especially in large kitchens, where wastewater is cleaned before being released into the environment." ;
+                   rdfs:label "Effluent Treatment" .
+
+
+###  http://www.amrita.edu/ontologies/fss#EggSeparator
+:EggSeparator rdf:type owl:Class ;
+              rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#EggShell
+:EggShell rdf:type owl:Class ;
+          rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#EggSpoon
+:EggSpoon rdf:type owl:Class ;
+          rdfs:subClassOf :Spoon .
+
+
+###  http://www.amrita.edu/ontologies/fss#ElectricPuttuMakerMachine
+:ElectricPuttuMakerMachine rdf:type owl:Class ;
+                           rdfs:subClassOf :Equipments ;
+                           rdfs:label "Electric Puttu Maker Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#ElectronicPlatformWeighingScale
+:ElectronicPlatformWeighingScale rdf:type owl:Class ;
+                                 rdfs:subClassOf :Equipments ;
+                                 rdfs:label "Electronic Platform Weighing Scale" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Environment
+:Environment rdf:type owl:Class ;
+             rdfs:subClassOf :Hygiene .
+
+
+###  http://www.amrita.edu/ontologies/fss#EquipmentType
+:EquipmentType rdf:type owl:Class ;
+               rdfs:subClassOf :PhysicalEntity ;
+               rdfs:comment "The categorization of kitchen and service equipment based on their function, size, capacity, durability." ;
+               rdfs:label "Equipment Type" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Equipments
+:Equipments rdf:type owl:Class ;
+            rdfs:subClassOf :PhysicalEntity ;
+            rdfs:comment "The term equipment discusses all the machinery, utensils, and furniture that can be utilised for the service, preparation, and storage of food." .
+
+
+###  http://www.amrita.edu/ontologies/fss#FIFO
+:FIFO rdf:type owl:Class ;
+      rdfs:subClassOf :InventoryManagement ;
+      rdfs:comment "First-In First-Out (FIFO) is a method that uses oldest stock first to reduce spoilage. Critical for perishable food items." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Facilities
+:Facilities rdf:type owl:Class ;
+            rdfs:subClassOf :CapacityBuilding .
+
+
+###  http://www.amrita.edu/ontologies/fss#Fermenting
+:Fermenting rdf:type owl:Class ;
+            rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#Finance
+:Finance rdf:type owl:Class ;
+         rdfs:subClassOf :CapacityBuilding .
+
+
+###  http://www.amrita.edu/ontologies/fss#FinancialManagement
+:FinancialManagement rdf:type owl:Class ;
+                     rdfs:comment "Financial Management represents the systematic process of planning, organizing, directing, and controlling financial activities within an institutional food service establishment." ;
+                     rdfs:label "Financial Management" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FishBones
+:FishBones rdf:type owl:Class ;
+           rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#FishFork
+:FishFork rdf:type owl:Class ;
+          rdfs:subClassOf :Fork .
+
+
+###  http://www.amrita.edu/ontologies/fss#FishKnife
+:FishKnife rdf:type owl:Class ;
+           rdfs:subClassOf :Knives .
+
+
+###  http://www.amrita.edu/ontologies/fss#FishSpoon
+:FishSpoon rdf:type owl:Class ;
+           rdfs:subClassOf :Spoon .
+
+
+###  http://www.amrita.edu/ontologies/fss#FishskinWaste
+:FishskinWaste rdf:type owl:Class ;
+               rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#Flavour
+:Flavour rdf:type owl:Class ;
+         rdfs:subClassOf :Sensory .
+
+
+###  http://www.amrita.edu/ontologies/fss#FlourSifter
+:FlourSifter rdf:type owl:Class ;
+             rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodContaminants
+:FoodContaminants rdf:type owl:Class ;
+                  rdfs:subClassOf :FoodSafety ;
+                  rdfs:comment "A major concern for food safety. There are mainly three types of food contamination, that is further classified as physical, chemical, and biological." ;
+                  rdfs:label "Food Contaminants" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodDelivery
+:FoodDelivery rdf:type owl:Class ;
+              rdfs:subClassOf :FoodManagement ;
+              rdfs:comment "The final stage of the institutional food service cycle, bridging food production and service to the consumer." ;
+              rdfs:label "Food Delivery" ;
+              rdfs:seeAlso "https://dbpedia.org/page/Food_delivery" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodHandler
+:FoodHandler rdf:type owl:Class ;
+             rdfs:subClassOf :Hygiene ;
+             rdfs:label "Food Handler" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodManagement
+:FoodManagement rdf:type owl:Class ;
+                rdfs:comment "The planning, preparation, and handling of production, storage, and material procurement. This is the most crucial operation in a food service as it impacts the overall quality of the service." ;
+                rdfs:label "Food Management" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodProduction
+:FoodProduction rdf:type owl:Class ;
+                rdfs:subClassOf :FoodManagement ;
+                rdfs:comment """The preparation of a large scale of items ranging from appetisers to beverages, where for each dish, a certain skill is needed along with the
+knowledge of different methods of processing.""" ;
+                rdfs:label "Food Production" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodProductionTechnique
+:FoodProductionTechnique rdf:type owl:Class ;
+                         rdfs:subClassOf :FoodProduction ;
+                         rdfs:label "Food Production Technique" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodPurchase
+:FoodPurchase rdf:type owl:Class ;
+              rdfs:subClassOf :FoodManagement ;
+              rdfs:label "Food Purchase" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodSafety
+:FoodSafety rdf:type owl:Class ;
+            rdfs:comment """Food safety includes the identification of potential hazards within the food
+service institution, which, if left unnoticed, could lead to a foodborne illness.""" ;
+            rdfs:label "Food Safety" ;
+            rdfs:seeAlso "https://dbpedia.org/page/Food_safety" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodService
+:FoodService rdf:type owl:Class ;
+             rdfs:subClassOf :FoodManagement ;
+             rdfs:comment "The mode and method by which prepared food is delivered and served to consumers in an institutional setting." ;
+             rdfs:label "Food Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodproductionType
+:FoodproductionType rdf:type owl:Class ;
+                    rdfs:subClassOf :FoodProduction ;
+                    rdfs:comment "The various systems of food production as food can be produced in number of ways in a specified quantity considering the policy, size and type of institution." ;
+                    rdfs:label "Food Production Type" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Fork
+:Fork rdf:type owl:Class ;
+      rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#FormalBuying
+:FormalBuying rdf:type owl:Class ;
+              rdfs:subClassOf :FoodPurchase ;
+              rdfs:comment "The quotations are accepted only after the written specifications from the buyer are met by the supplier." ;
+              rdfs:label "Formal Buying" .
+
+
+###  http://www.amrita.edu/ontologies/fss#FruitFork
+:FruitFork rdf:type owl:Class ;
+           rdfs:subClassOf :Fork .
+
+
+###  http://www.amrita.edu/ontologies/fss#FruitKnife
+:FruitKnife rdf:type owl:Class ;
+            rdfs:subClassOf :Knives .
+
+
+###  http://www.amrita.edu/ontologies/fss#FruitPeel
+:FruitPeel rdf:type owl:Class ;
+           rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#Frying
+:Frying rdf:type owl:Class ;
+        rdfs:subClassOf :DryHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#FryingPan
+:FryingPan rdf:type owl:Class ;
+           rdfs:subClassOf :KitchenEssentials ;
+           rdfs:label "Frying Pan" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Functional
+:Functional rdf:type owl:Class ;
+            rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#GarlicPress
+:GarlicPress rdf:type owl:Class ;
+             rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#GlassContainers
+:GlassContainers rdf:type owl:Class ;
+                 rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#GrabandGoCounters
+:GrabandGoCounters rdf:type owl:Class ;
+                   rdfs:subClassOf :FoodDelivery ;
+                   rdfs:comment "Refers to ready-to-eat meals packaged for quick purchase and minimal service interaction." ;
+                   rdfs:label "Grab and Go Counters" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Grading
+:Grading rdf:type owl:Class ;
+         rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#Grilling
+:Grilling rdf:type owl:Class ;
+          rdfs:subClassOf :DryHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#Grinding
+:Grinding rdf:type owl:Class ;
+          rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#HR
+:HR rdf:type owl:Class ;
+    rdfs:subClassOf :Departments ;
+    rdfs:comment "oversee recruitment, selection, scheduling, and welfare of employees. It ensures compliance with labor regulations and promotes a safe, equitable working environment." .
+
+
+###  http://www.amrita.edu/ontologies/fss#HeavyDuty
+:HeavyDuty rdf:type owl:Class ;
+           rdfs:subClassOf :EquipmentType .
+
+
+###  http://www.amrita.edu/ontologies/fss#HybridDelivery
+:HybridDelivery rdf:type owl:Class ;
+                rdfs:subClassOf :FoodDelivery ;
+                rdfs:comment "A combination of two or more delivery styles (e.g., part buffet, part pre-plated)." ;
+                rdfs:label "Hybrid Delivery" .
+
+
+###  http://www.amrita.edu/ontologies/fss#HybridPoweredOperation
+:HybridPoweredOperation rdf:type owl:Class ;
+                        rdfs:subClassOf :ModeofOperation ;
+                        rdfs:comment "Equipment operating on a combination of sources such as electricity and gas." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Hygiene
+:Hygiene rdf:type owl:Class ;
+         rdfs:subClassOf :SourcesofFoodBorneIllness ;
+         rdfs:comment "The sanitation and cleanliness practices of both personnel and the food service environment." .
+
+
+###  http://www.amrita.edu/ontologies/fss#IceCreamSpoon
+:IceCreamSpoon rdf:type owl:Class ;
+               rdfs:subClassOf :Spoon .
+
+
+###  http://www.amrita.edu/ontologies/fss#Incineration
+:Incineration rdf:type owl:Class ;
+              rdfs:subClassOf :Method ;
+              rdfs:comment "Incineration involves burning waste at high temperatures, which reduces its volume, but it must be carefully managed to avoid air pollution." .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialChilliCuttingMachine
+:IndustrialChilliCuttingMachine rdf:type owl:Class ;
+                                rdfs:subClassOf :Equipments ;
+                                rdfs:label "Industrial Chilli Cutting Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialGarlicCuttingMachine
+:IndustrialGarlicCuttingMachine rdf:type owl:Class ;
+                                rdfs:subClassOf :Equipments ;
+                                rdfs:label "Industrial Garlic Cutting Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialMixerGrinder
+:IndustrialMixerGrinder rdf:type owl:Class ;
+                        rdfs:subClassOf :Equipments ;
+                        rdfs:label "Industrial Mixer Grinder" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialNoodlesDryerMachine
+:IndustrialNoodlesDryerMachine rdf:type owl:Class ;
+                               rdfs:subClassOf :Equipments ;
+                               rdfs:label "Industrial Noodles Dryer Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialNoodlesSteamerMachine
+:IndustrialNoodlesSteamerMachine rdf:type owl:Class ;
+                                 rdfs:subClassOf :Equipments ;
+                                 rdfs:label "Industrial Noodles Steamer Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialOnionCuttingMachine
+:IndustrialOnionCuttingMachine rdf:type owl:Class ;
+                               rdfs:subClassOf :Equipments ;
+                               rdfs:label "Industrial Onion Cutting Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialPastaExtruder
+:IndustrialPastaExtruder rdf:type owl:Class ;
+                         rdfs:subClassOf :Equipments ;
+                         rdfs:label "Industrial Pasta Extruder" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialRefrigerators
+:IndustrialRefrigerators rdf:type owl:Class ;
+                         rdfs:subClassOf :Equipments ;
+                         rdfs:label "Industrial Refrigerators" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IndustrialTopOpendoorDeepFreezer
+:IndustrialTopOpendoorDeepFreezer rdf:type owl:Class ;
+                                  rdfs:subClassOf :Equipments ;
+                                  rdfs:label "Industrial Top Open Door Deep Freezer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Information
+:Information rdf:type owl:Class ;
+             rdfs:subClassOf :Knowledge .
+
+
+###  http://www.amrita.edu/ontologies/fss#Infrastructure
+:Infrastructure rdf:type owl:Class ;
+                rdfs:subClassOf :Departments ;
+                rdfs:comment "To manage the physical and technical facilities that support food service operations, such as kitchen layout, utilities, and maintenance, ensuring functionality and safety." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Inorganic
+:Inorganic rdf:type owl:Class ;
+           rdfs:subClassOf :TypesofWaste ;
+           rdfs:comment "Inorganic can be from non-living material sources such as glass, plastics, and metals." .
+
+
+###  http://www.amrita.edu/ontologies/fss#InventoryManagement
+:InventoryManagement rdf:type owl:Class ;
+                     rdfs:subClassOf :FoodManagement ;
+                     rdfs:comment "The process of managing the stocks delicately, considering the sales and prices. Managing the stocks efficiently will help in proper menu planning, cost control, regular flow of purchases, and smooth food production" ;
+                     rdfs:label "Inventory Management" .
+
+
+###  http://www.amrita.edu/ontologies/fss#InventoryTurnoverRatio
+:InventoryTurnoverRatio rdf:type owl:Class ;
+                        rdfs:subClassOf :InventoryManagement ;
+                        rdfs:comment "Measures how quickly inventory is used which is useful for defining stock utilization." ;
+                        rdfs:label "Inventory Turnover Ratio" .
+
+
+###  http://www.amrita.edu/ontologies/fss#IronSkillet
+:IronSkillet rdf:type owl:Class ;
+             rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Just-in-TimeInventoryMethod
+:Just-in-TimeInventoryMethod rdf:type owl:Class ;
+                             rdfs:subClassOf :InventoryManagement ;
+                             rdfs:comment "A dynamic inventory approach where stock is replenished exactly when needed, minimizing holding costs." ;
+                             rdfs:label "Just-in-Time Inventory Method" .
+
+
+###  http://www.amrita.edu/ontologies/fss#JuteBags
+:JuteBags rdf:type owl:Class ;
+          rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#KitchenEssentials
+:KitchenEssentials rdf:type owl:Class ;
+                   rdfs:comment "The basic tools and utensils essential for food preparation, cooking, serving, and portion control in institutional food services. Kitchen essentials ensure efficiency, hygiene, and standardization in daily culinary operations." ;
+                   rdfs:label "Kitchen Essentials" .
+
+
+###  http://www.amrita.edu/ontologies/fss#KitchenJars
+:KitchenJars rdf:type owl:Class ;
+             rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Knives
+:Knives rdf:type owl:Class ;
+        rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Knowledge
+:Knowledge rdf:type owl:Class ;
+           rdfs:subClassOf :CapacityBuilding .
+
+
+###  http://www.amrita.edu/ontologies/fss#LIFO
+:LIFO rdf:type owl:Class ;
+      rdfs:subClassOf :InventoryManagement ;
+      rdfs:comment "Last-In First-Out (LIFO) is an inventory valuation and rotation technique where the newest stock is used first." .
+
+
+###  http://www.amrita.edu/ontologies/fss#LabourLaws
+:LabourLaws rdf:type owl:Class ;
+            rdfs:subClassOf :Knowledge ;
+            rdfs:label "Labour Laws" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Lactometer
+:Lactometer rdf:type owl:Class ;
+            rdfs:subClassOf :Equipments ;
+            rdfs:comment "an instrument used to measure the specific gravity of milk, which helps assess its purity and detect adulteration." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Ladle
+:Ladle rdf:type owl:Class ;
+       rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Landfills
+:Landfills rdf:type owl:Class ;
+           rdfs:subClassOf :Method ;
+           rdfs:comment "Landfills are sites where waste is buried, but overuse can lead to pollution and environmental problems." .
+
+
+###  http://www.amrita.edu/ontologies/fss#LargeFork
+:LargeFork rdf:type owl:Class ;
+           rdfs:subClassOf :Fork .
+
+
+###  http://www.amrita.edu/ontologies/fss#LightDuty
+:LightDuty rdf:type owl:Class ;
+           rdfs:subClassOf :EquipmentType .
+
+
+###  http://www.amrita.edu/ontologies/fss#Liquid
+:Liquid rdf:type owl:Class ;
+        rdfs:subClassOf :States ;
+        rdfs:comment "Liquid food are easy to consume, with a free flowing consistency." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Logistics
+:Logistics rdf:type owl:Class ;
+           rdfs:subClassOf :Departments ;
+           rdfs:comment "Covers the planning and coordination of supply chain, transportation, and resource distribution within the institution to ensure timely availability of food, equipment, and materials." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Maintanence
+:Maintanence rdf:type owl:Class ;
+             rdfs:subClassOf :PhysicalEntity ;
+             rdfs:comment "The routine and corrective upkeep procedures essential to ensure proper functioning, hygiene, and safety of food service equipment." .
+
+
+###  http://www.amrita.edu/ontologies/fss#MandolineSlicer
+:MandolineSlicer rdf:type owl:Class ;
+                 rdfs:subClassOf :KitchenEssentials ;
+                 rdfs:comment "A precision cutting tool equipped with adjustable blades for slicing fruits and vegetables into uniform thicknesses." ;
+                 rdfs:label "Mandoline Slicer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Marketing
+:Marketing rdf:type owl:Class ;
+           rdfs:comment "The strategic and operational activities undertaken to promote institutional food services, build customer satisfaction, and ensure financial sustainability. It encompasses market research, pricing, promotion, and service evaluation that align institutional goals with consumer needs." ;
+           rdfs:seeAlso "https://dbpedia.org/page/Marketing" .
+
+
+###  http://www.amrita.edu/ontologies/fss#MasalaPackets
+:MasalaPackets rdf:type owl:Class ;
+               rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#MeasuringCup
+:MeasuringCup rdf:type owl:Class ;
+              rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#MeatTenderizer
+:MeatTenderizer rdf:type owl:Class ;
+                rdfs:subClassOf :KitchenEssentials ;
+                rdfs:label "Meat Tenderizer" .
+
+
+###  http://www.amrita.edu/ontologies/fss#MediumDuty
+:MediumDuty rdf:type owl:Class ;
+            rdfs:subClassOf :EquipmentType .
+
+
+###  http://www.amrita.edu/ontologies/fss#MenuPlanning
+:MenuPlanning rdf:type owl:Class ;
+              rdfs:subClassOf :FoodManagement ;
+              rdfs:comment "The systematic process of selecting, designing, and scheduling meals to meet nutritional, financial, operational, and consumer satisfaction goals within institutional food service systems." ;
+              rdfs:label "Menu Planning" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Method
+:Method rdf:type owl:Class ;
+        rdfs:subClassOf :WasteManagement ;
+        rdfs:comment "Defines the various methods of waste management used in an institutional food service setting." .
+
+
+###  http://www.amrita.edu/ontologies/fss#MicrowaveCooking
+:MicrowaveCooking rdf:type owl:Class ;
+                  rdfs:subClassOf :DryHeat ;
+                  rdfs:label "Microwave Cooking" .
+
+
+###  http://www.amrita.edu/ontologies/fss#MilkCreamSeparator
+:MilkCreamSeparator rdf:type owl:Class ;
+                    rdfs:subClassOf :Equipments ;
+                    rdfs:label "Milk Cream Separator" .
+
+
+###  http://www.amrita.edu/ontologies/fss#MilkPackets
+:MilkPackets rdf:type owl:Class ;
+             rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#MixingBowl
+:MixingBowl rdf:type owl:Class ;
+            rdfs:subClassOf :KitchenEssentials ;
+            rdfs:label "Mixing Bowl" .
+
+
+###  http://www.amrita.edu/ontologies/fss#ModeofOperation
+:ModeofOperation rdf:type owl:Class ;
+                 rdfs:subClassOf :PhysicalEntity ;
+                 rdfs:comment "The functional configuration or sourcing mode through which food service equipment operates. It helps classify equipment based on energy or supply source." ;
+                 rdfs:label "Mode of Operations" .
+
+
+###  http://www.amrita.edu/ontologies/fss#MoistHeat
+:MoistHeat rdf:type owl:Class ;
+           rdfs:subClassOf :Production ;
+           rdfs:comment "cooking methods that use water or steam as the primary medium for heat transfer. Moist heat techniques, including boiling, simmering, poaching, blanching, and steaming, ensure uniform cooking, retention of moisture for large-scale preparation of vegetables, meats, and cereals." .
+
+
+###  http://www.amrita.edu/ontologies/fss#MortarAndPestle
+:MortarAndPestle rdf:type owl:Class ;
+                 rdfs:subClassOf :KitchenEssentials ;
+                 rdfs:label "Mortar and Pestle" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Mouthfeel
+:Mouthfeel rdf:type owl:Class ;
+           rdfs:subClassOf :Rheological .
+
+
+###  http://www.amrita.edu/ontologies/fss#MultiSourcedOperation
+:MultiSourcedOperation rdf:type owl:Class ;
+                       rdfs:subClassOf :ModeofOperation ;
+                       rdfs:comment "Equipment that can be alternatively powered or supplied from several independent sources, providing flexibility during service operations." .
+
+
+###  http://www.amrita.edu/ontologies/fss#MuttonBones
+:MuttonBones rdf:type owl:Class ;
+             rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#Napkins
+:Napkins rdf:type owl:Class ;
+         rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#NegotiatedBuying
+:NegotiatedBuying rdf:type owl:Class ;
+                  rdfs:subClassOf :FoodPurchase ;
+                  rdfs:comment "The purchasing method that focuses on the negotiation between the buyer and supplier, mainly regarding the pricing and the quantity." ;
+                  rdfs:label "Negotiated Buying" .
+
+
+###  http://www.amrita.edu/ontologies/fss#NonBiodegradable
+:NonBiodegradable rdf:type owl:Class ;
+                  rdfs:subClassOf :TypesofWaste ;
+                  rdfs:comment "Non-biodegradable waste cannot decompose easily and includes materials like plastic wrappers and metal cans." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Number
+:Number rdf:type owl:Class ;
+        rdfs:subClassOf :Quantity ;
+        rdfs:comment "Enumeration of the materials required for production and service as well as the produced food, expected number of people to be served." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Nutritional
+:Nutritional rdf:type owl:Class ;
+             rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#Occasional
+:Occasional rdf:type owl:Class ;
+            rdfs:subClassOf :Types ;
+            rdfs:comment "Prepared for specific occasions like holidays, celebrations, or institutional events." .
+
+
+###  http://www.amrita.edu/ontologies/fss#OilPackets
+:OilPackets rdf:type owl:Class ;
+            rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#OnRepairMaintanence
+:OnRepairMaintanence rdf:type owl:Class ;
+                     rdfs:subClassOf :Maintanence ;
+                     rdfs:comment "More detailed checks or servicing scheduled weekly to prevent mechanical faults and ensure hygiene." ;
+                     rdfs:label "On Repair Maintanence" .
+
+
+###  http://www.amrita.edu/ontologies/fss#OnlinePurchase
+:OnlinePurchase rdf:type owl:Class ;
+                rdfs:subClassOf :FoodPurchase ;
+                rdfs:comment "The process where the buyer can directly place an order and purchase the goods from a seller without interaction or an intermediary service through an online platform." ;
+                rdfs:label "Online Purchase" .
+
+
+###  http://www.amrita.edu/ontologies/fss#OpenMarketBuying
+:OpenMarketBuying rdf:type owl:Class ;
+                  rdfs:subClassOf :FoodPurchase ;
+                  rdfs:comment "The buyer accepts the quotation from the suppliers for the necessary items required in the food service setting, considering the specifications." ;
+                  rdfs:label "Open Market Buying" .
+
+
+###  http://www.amrita.edu/ontologies/fss#OrderofUse
+:OrderofUse rdf:type owl:Class ;
+            rdfs:subClassOf :PhysicalEntity ;
+            rdfs:comment "The stage of food preparation or service where specific equipment is utilized." ;
+            rdfs:label "Order of Use" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Organic
+:Organic rdf:type owl:Class ;
+         rdfs:subClassOf :TypesofWaste ;
+         rdfs:comment "Organic can be from living material sources such as Plant, animal." .
+
+
+###  http://www.amrita.edu/ontologies/fss#OverallAcceptability
+:OverallAcceptability rdf:type owl:Class ;
+                      rdfs:subClassOf :Sensory .
+
+
+###  http://www.amrita.edu/ontologies/fss#PETBottles
+:PETBottles rdf:type owl:Class ;
+            rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#Palatability
+:Palatability rdf:type owl:Class ;
+              rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#ParStockMethod
+:ParStockMethod rdf:type owl:Class ;
+                rdfs:subClassOf :InventoryManagement ;
+                rdfs:comment "Maintains a fixed level of inventory." ;
+                rdfs:label "Par Stock Method" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Peeler
+:Peeler rdf:type owl:Class ;
+        rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Peeling
+:Peeling rdf:type owl:Class ;
+         rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#PerpetualInventorySystem
+:PerpetualInventorySystem rdf:type owl:Class ;
+                          rdfs:subClassOf :InventoryManagement ;
+                          rdfs:comment "Tracks inventory continuously in real-time." ;
+                          rdfs:label "Perpetual Inventory System" .
+
+
+###  http://www.amrita.edu/ontologies/fss#PersonnelManagement
+:PersonnelManagement rdf:type owl:Class ;
+                     rdfs:comment "Personal management denotes to the process of managing people in an organization, in a manner that they can attain the goals of the establishment they are working. The essence of personnel management is to establish administrative, organizational, managerial, sociopsychological, intellectual, informational, and legal relations between the subject (manager) and the object (staff) of the food service establishment." ;
+                     rdfs:label "Personnel Management" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Physical
+:Physical rdf:type owl:Class ;
+          rdfs:subClassOf :FoodContaminants ;
+          rdfs:comment "Physical contaminants include any inedible materials that are visible to the naked eye, present in the food, like glass pieces." .
+
+
+###  http://www.amrita.edu/ontologies/fss#PhysicalEntity
+:PhysicalEntity rdf:type owl:Class ;
+                rdfs:comment "In this ontology, rather than directly introducing the concept of equipment, it was brought out through the word physical entity for clarity." ;
+                rdfs:label "Physical Entity" .
+
+
+###  http://www.amrita.edu/ontologies/fss#PhysicalInventoryMethod
+:PhysicalInventoryMethod rdf:type owl:Class ;
+                         rdfs:subClassOf :InventoryManagement ;
+                         rdfs:comment "Involves periodic manual counting." ;
+                         rdfs:label "Physical Inventory Method" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Physiochemical
+:Physiochemical rdf:type owl:Class ;
+                rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#Placemats
+:Placemats rdf:type owl:Class ;
+           rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#PlasticSacks
+:PlasticSacks rdf:type owl:Class ;
+              rdfs:subClassOf :NonBiodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#Plates
+:Plates rdf:type owl:Class ;
+        rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Poaching
+:Poaching rdf:type owl:Class ;
+          rdfs:subClassOf :MoistHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#PolishedIndustrialNoodlesExtruder
+:PolishedIndustrialNoodlesExtruder rdf:type owl:Class ;
+                                   rdfs:subClassOf :Equipments ;
+                                   rdfs:label "Polished Industrial Noodles Extruder" .
+
+
+###  http://www.amrita.edu/ontologies/fss#PotatoMasher
+:PotatoMasher rdf:type owl:Class ;
+              rdfs:subClassOf :KitchenEssentials ;
+              rdfs:label "Potato Masher" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Pre-PlatedMeals
+:Pre-PlatedMeals rdf:type owl:Class ;
+                 rdfs:subClassOf :FoodDelivery ;
+                 rdfs:comment "Meals are portioned and plated in the kitchen before being served." ;
+                 rdfs:label "Pre-Plated Meals" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Pre-Preparation
+:Pre-Preparation rdf:type owl:Class ;
+                 rdfs:subClassOf :OrderofUse ;
+                 rdfs:comment "Used before cooking to wash, cut, peel, or portion raw ingredients." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Pre-Production
+:Pre-Production rdf:type owl:Class ;
+                rdfs:subClassOf :FoodProductionTechnique ;
+                rdfs:comment "activities carried out prior to cooking or final food preparation, including cleaning, peeling, cutting, weighing and other preliminary processes that prepare raw ingredients for production." .
+
+
+###  http://www.amrita.edu/ontologies/fss#PressureCooking
+:PressureCooking rdf:type owl:Class ;
+                 rdfs:subClassOf :MoistHeat ;
+                 rdfs:label "Pressure Cooking" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Production
+:Production rdf:type owl:Class ;
+            rdfs:subClassOf :FoodProductionTechnique ;
+            rdfs:comment "The main food preparation and cooking processes that transform pre-processed raw ingredients into finished dishes, it includes cooking methods such as dry heat, moist heat, and combination techniques." .
+
+
+###  http://www.amrita.edu/ontologies/fss#PurchaseDefect
+:PurchaseDefect rdf:type owl:Class ;
+                rdfs:subClassOf :SourcesofFoodBorneIllness ;
+                rdfs:comment "Risks associated with the procurement of unsafe or substandard raw materials." ;
+                rdfs:label "Purchase Defect" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Quality
+:Quality rdf:type owl:Class ;
+         rdfs:subClassOf :Characteristics ;
+         rdfs:comment "Quality refers to the degree of excellence that is to be accepted by the consumer. The components under quality are important parameters that give a proper description of  the food item." ;
+         rdfs:seeAlso "https://dbpedia.org/page/Food_quality" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Quantity
+:Quantity rdf:type owl:Class ;
+          rdfs:subClassOf :Characteristics ;
+          rdfs:comment "Quantifying the food items in the establishment is necessary to have a proper forecasting and estimating the amount of food being purchased, produced, and served." .
+
+
+###  http://www.amrita.edu/ontologies/fss#ReadyPreparedFoods
+:ReadyPreparedFoods rdf:type owl:Class ;
+                    rdfs:subClassOf :FoodproductionType ;
+                    rdfs:comment "Individual cooked meals or food items that are sealed and then frozen, chilled and stored for later use." ;
+                    rdfs:label "Ready Prepared Foods" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Recruitment
+:Recruitment rdf:type owl:Class ;
+             rdfs:subClassOf :StaffEmployment .
+
+
+###  http://www.amrita.edu/ontologies/fss#Recycling
+:Recycling rdf:type owl:Class ;
+           rdfs:subClassOf :Method ;
+           rdfs:comment "Recycling is the process of converting nonbiodegradable items like plastic, glass, and metal into new products, helping to reduce waste and save resources." .
+
+
+###  http://www.amrita.edu/ontologies/fss#RetailBuying
+:RetailBuying rdf:type owl:Class ;
+              rdfs:subClassOf :FoodPurchase ;
+              rdfs:comment "Purchasing food materials, equipment, and other supplies from external vendors or retail markets." ;
+              rdfs:label "Retail Buying" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Rheological
+:Rheological rdf:type owl:Class ;
+             rdfs:subClassOf :Quality ;
+             rdfs:seeAlso "https://dbpedia.org/page/Food_rheology" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Roasting
+:Roasting rdf:type owl:Class ;
+          rdfs:subClassOf :DryHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#RoastingPan
+:RoastingPan rdf:type owl:Class ;
+             rdfs:subClassOf :KitchenEssentials ;
+             rdfs:label "Roasting Pan" .
+
+
+###  http://www.amrita.edu/ontologies/fss#RollingPin
+:RollingPin rdf:type owl:Class ;
+            rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Safety
+:Safety rdf:type owl:Class ;
+        rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#SafetyRegulations
+:SafetyRegulations rdf:type owl:Class ;
+                   rdfs:subClassOf :Knowledge ;
+                   rdfs:label "Safety Regulations" .
+
+
+###  http://www.amrita.edu/ontologies/fss#SaltAndPepperDispenser
+:SaltAndPepperDispenser rdf:type owl:Class ;
+                        rdfs:subClassOf :KitchenEssentials ;
+                        rdfs:label "Salt and Pepper Dispenser" .
+
+
+###  http://www.amrita.edu/ontologies/fss#SatelliteKitchen
+:SatelliteKitchen rdf:type owl:Class ;
+                  rdfs:subClassOf :FoodDelivery ;
+                  rdfs:comment "Involves preparation in a central kitchen and delivery to remote or secondary units." ;
+                  rdfs:label "Satellite Kitchen" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Sauteing
+:Sauteing rdf:type owl:Class ;
+          rdfs:subClassOf :DryHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#Scraper
+:Scraper rdf:type owl:Class ;
+         rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#SelfService
+:SelfService rdf:type owl:Class ;
+             rdfs:subClassOf :FoodService ;
+             rdfs:comment "Involves consumers serving themselves from pre-prepared or displayed food options." ;
+             rdfs:label "Self Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Semisolid
+:Semisolid rdf:type owl:Class ;
+           rdfs:subClassOf :States .
+
+
+###  http://www.amrita.edu/ontologies/fss#Sensory
+:Sensory rdf:type owl:Class ;
+         rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#Service
+:Service rdf:type owl:Class ;
+         rdfs:subClassOf :OrderofUse ;
+         rdfs:comment "Used after cooking for holding, displaying, or serving food while maintaining temperature and safety." .
+
+
+###  http://www.amrita.edu/ontologies/fss#ServiceFork
+:ServiceFork rdf:type owl:Class ;
+             rdfs:subClassOf :Fork .
+
+
+###  http://www.amrita.edu/ontologies/fss#ServingBowls
+:ServingBowls rdf:type owl:Class ;
+              rdfs:subClassOf :KitchenEssentials ;
+              rdfs:label "Serving Bowls" .
+
+
+###  http://www.amrita.edu/ontologies/fss#ServingVessels
+:ServingVessels rdf:type owl:Class ;
+                rdfs:subClassOf :KitchenEssentials ;
+                rdfs:label "Serving Vessels" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Shelflife
+:Shelflife rdf:type owl:Class ;
+           rdfs:subClassOf :Quality .
+
+
+###  http://www.amrita.edu/ontologies/fss#Simmering
+:Simmering rdf:type owl:Class ;
+           rdfs:subClassOf :MoistHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#SingleSourcedOperation
+:SingleSourcedOperation rdf:type owl:Class ;
+                        rdfs:subClassOf :ModeofOperation ;
+                        rdfs:comment "Equipment dependent on one primary energy or material source." .
+
+
+###  http://www.amrita.edu/ontologies/fss#SingleUse
+:SingleUse rdf:type owl:Class ;
+           rdfs:subClassOf :Types ;
+           rdfs:comment "Designed for one-time use." ;
+           rdfs:label "Single Use" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Size
+:Size rdf:type owl:Class ;
+      rdfs:subClassOf :Quantity ;
+      rdfs:comment "Proper standardization of the size is required to ensure proper forcasting in the establishment." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Skills
+:Skills rdf:type owl:Class ;
+        rdfs:subClassOf :CapacityBuilding .
+
+
+###  http://www.amrita.edu/ontologies/fss#SmallFork
+:SmallFork rdf:type owl:Class ;
+           rdfs:subClassOf :Fork .
+
+
+###  http://www.amrita.edu/ontologies/fss#SmallOrderMethods
+:SmallOrderMethods rdf:type owl:Class ;
+                   rdfs:subClassOf :FoodPurchase ;
+                   rdfs:comment "Implemented for commodities that require non-recurring purchases and that involve very little money." ;
+                   rdfs:label "Small Order Methods" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Smallknife
+:Smallknife rdf:type owl:Class ;
+            rdfs:subClassOf :Knives .
+
+
+###  http://www.amrita.edu/ontologies/fss#Soaking
+:Soaking rdf:type owl:Class ;
+         rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#Solid
+:Solid rdf:type owl:Class ;
+       rdfs:subClassOf :States .
+
+
+###  http://www.amrita.edu/ontologies/fss#Sorting
+:Sorting rdf:type owl:Class ;
+         rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#SoupSpoon
+:SoupSpoon rdf:type owl:Class ;
+           rdfs:subClassOf :Spoon .
+
+
+###  http://www.amrita.edu/ontologies/fss#SourcesofFoodBorneIllness
+:SourcesofFoodBorneIllness rdf:type owl:Class ;
+                           rdfs:subClassOf :FoodSafety ;
+                           rdfs:comment "The primary origins of foodborne diseases in institutional food service. It includes biological, chemical, and physical factors introduced during food production, storage, or handling that can result in illness among consumers." ;
+                           rdfs:label "Sources of Food Borne Illness" .
+
+
+###  http://www.amrita.edu/ontologies/fss#SousVide
+:SousVide rdf:type owl:Class ;
+          rdfs:subClassOf :FoodproductionType ;
+          rdfs:comment "Sous Vide means ‘under vacuum'. This cooking technique involves the production of food in vacuum sealed pouches and heated at low temperatures for a long time." ;
+          rdfs:label "Sous Vide" .
+
+
+###  http://www.amrita.edu/ontologies/fss#SpecialOccasions
+:SpecialOccasions rdf:type owl:Class ;
+                  rdfs:subClassOf :FoodService ;
+                  rdfs:comment "Refers to food service systems designed for events or celebrations, such as institutional functions, festivals, or themed days." ;
+                  rdfs:label "Special Occasions" .
+
+
+###  http://www.amrita.edu/ontologies/fss#SpiderStrainerSkimmerLadle
+:SpiderStrainerSkimmerLadle rdf:type owl:Class ;
+                            rdfs:subClassOf :KitchenEssentials ;
+                            rdfs:label "Spider Strainer Skimmer Ladle" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Spoon
+:Spoon rdf:type owl:Class ;
+       rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#StaffEmployment
+:StaffEmployment rdf:type owl:Class ;
+                 rdfs:subClassOf :PersonnelManagement ;
+                 rdfs:comment "The processes related to hiring, assigning, and retaining food service personnel. It includes aspects such as recruitment, role designation, contract types, employment conditions, and job classifications necessary for maintaining an effective workforce within institutional settings." ;
+                 rdfs:label "Staff Employment" .
+
+
+###  http://www.amrita.edu/ontologies/fss#StaffTraining
+:StaffTraining rdf:type owl:Class ;
+               rdfs:subClassOf :PersonnelManagement ;
+               rdfs:comment "The structured educational and skill development activities designed to enhance staff competence in food safety, hygiene practices, technical operations, and regulatory compliance. Ongoing training is essential for minimizing food safety risks, maintaining service standards, and meeting institutional and legal requirements." ;
+               rdfs:label "Staff Training" .
+
+
+###  http://www.amrita.edu/ontologies/fss#StainlessSteelCommercialDosaPlate
+:StainlessSteelCommercialDosaPlate rdf:type owl:Class ;
+                                   rdfs:subClassOf :Equipments ;
+                                   rdfs:label "Stainless Steel Commercial Dosa Plate" .
+
+
+###  http://www.amrita.edu/ontologies/fss#States
+:States rdf:type owl:Class ;
+        rdfs:subClassOf :Characteristics ;
+        rdfs:comment """The food form depends on the properties of texture. The food texture can be in
+the form of solid, liquid, or semi-solid.""" .
+
+
+###  http://www.amrita.edu/ontologies/fss#SteakKnife
+:SteakKnife rdf:type owl:Class ;
+            rdfs:subClassOf :Knives .
+
+
+###  http://www.amrita.edu/ontologies/fss#Steaming
+:Steaming rdf:type owl:Class ;
+          rdfs:subClassOf :MoistHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#Stewing
+:Stewing rdf:type owl:Class ;
+         rdfs:subClassOf :MoistHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#StocklessPurchase
+:StocklessPurchase rdf:type owl:Class ;
+                   rdfs:subClassOf :FoodPurchase ;
+                   rdfs:comment "The supplier keeps the stock of goods rather than the buyer, so the inventory is managed by the supplier." ;
+                   rdfs:label "Stockless Purchase" .
+
+
+###  http://www.amrita.edu/ontologies/fss#StorageFacility
+:StorageFacility rdf:type owl:Class ;
+                 rdfs:subClassOf :FoodManagement ;
+                 rdfs:label "Storage Facility" ;
+                 rdfs:seeAlso "https://dbpedia.org/page/Food_storage" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Strainer
+:Strainer rdf:type owl:Class ;
+          rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#SundaeSpoon
+:SundaeSpoon rdf:type owl:Class ;
+             rdfs:subClassOf :Spoon .
+
+
+###  http://www.amrita.edu/ontologies/fss#TableCloth
+:TableCloth rdf:type owl:Class ;
+            rdfs:subClassOf :KitchenEssentials ;
+            rdfs:label "Table Cloth" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Tabledhôte
+:Tabledhôte rdf:type owl:Class ;
+            rdfs:subClassOf :Types ;
+            rdfs:comment "Table d’Hôte originates from French, meaning “host’s table'. A fixed menu with limited courses offered at a set price." ;
+            rdfs:label "Table d’Hôte" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Taste
+:Taste rdf:type owl:Class ;
+       rdfs:subClassOf :Sensory .
+
+
+###  http://www.amrita.edu/ontologies/fss#TeaSpoon
+:TeaSpoon rdf:type owl:Class ;
+          rdfs:subClassOf :Spoon .
+
+
+###  http://www.amrita.edu/ontologies/fss#TeaWaste
+:TeaWaste rdf:type owl:Class ;
+          rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#TemperatureDefect
+:TemperatureDefect rdf:type owl:Class ;
+                   rdfs:subClassOf :SourcesofFoodBorneIllness ;
+                   rdfs:comment "The safety hazards caused by storing, cooking, or holding food at inappropriate temperatures." ;
+                   rdfs:label "Temperature Defect" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Texture
+:Texture rdf:type owl:Class ;
+         rdfs:subClassOf :Sensory .
+
+
+###  http://www.amrita.edu/ontologies/fss#Tissues
+:Tissues rdf:type owl:Class ;
+         rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#Toasting
+:Toasting rdf:type owl:Class ;
+          rdfs:subClassOf :DryHeat .
+
+
+###  http://www.amrita.edu/ontologies/fss#Tongs
+:Tongs rdf:type owl:Class ;
+       rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Tray
+:Tray rdf:type owl:Class ;
+      rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Trolley
+:Trolley rdf:type owl:Class ;
+         rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#TrolleyService
+:TrolleyService rdf:type owl:Class ;
+                rdfs:subClassOf :FoodDelivery ;
+                rdfs:comment "Meals are transported and served directly from a trolley at service points (e.g., hospital wards, banquet halls)." ;
+                rdfs:label "Trolley Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Tumblers
+:Tumblers rdf:type owl:Class ;
+          rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Types
+:Types rdf:type owl:Class ;
+       rdfs:subClassOf :MenuPlanning ;
+       rdfs:comment "Defines the type of menus." .
+
+
+###  http://www.amrita.edu/ontologies/fss#TypesofWaste
+:TypesofWaste rdf:type owl:Class ;
+              rdfs:subClassOf :WasteManagement ;
+              rdfs:label "Types of Waste" .
+
+
+###  http://www.amrita.edu/ontologies/fss#UsedClothFabrics
+:UsedClothFabrics rdf:type owl:Class ;
+                  rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#VegetableCuttingMachine
+:VegetableCuttingMachine rdf:type owl:Class ;
+                         rdfs:subClassOf :Equipments ;
+                         rdfs:label "Vegetable Cutting Machine" .
+
+
+###  http://www.amrita.edu/ontologies/fss#VegetablePeel
+:VegetablePeel rdf:type owl:Class ;
+               rdfs:subClassOf :Biodegradable .
+
+
+###  http://www.amrita.edu/ontologies/fss#Vending
+:Vending rdf:type owl:Class ;
+         rdfs:subClassOf :FoodproductionType ;
+         rdfs:comment "The automated machines that can be used to dispatch food products such as beverages, snacks and confectionaries." .
+
+
+###  http://www.amrita.edu/ontologies/fss#VendingService
+:VendingService rdf:type owl:Class ;
+                rdfs:subClassOf :FoodService ;
+                rdfs:comment "Automated food service where pre-packaged items are dispensed through vending machines, enabling 24-hour or unattended service." ;
+                rdfs:label "Vending Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Volume
+:Volume rdf:type owl:Class ;
+        rdfs:subClassOf :Quantity ;
+        rdfs:comment "The accuracy in portion control can be determined by the volume." .
+
+
+###  http://www.amrita.edu/ontologies/fss#WaiterService
+:WaiterService rdf:type owl:Class ;
+               rdfs:subClassOf :FoodService ;
+               rdfs:comment "Traditional system where service personnel (waiters) serve food directly to customers at the table." ;
+               rdfs:label "Waiter Service" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Washing
+:Washing rdf:type owl:Class ;
+         rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#WasteBins
+:WasteBins rdf:type owl:Class ;
+           rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#WasteManagement
+:WasteManagement rdf:type owl:Class ;
+                 rdfs:comment "An essential part of running any institutional food service, such as those in schools, hospitals, or large cafeterias. Every day, these places produce large amounts of waste from food preparation, serving, and cleaning activities. If not handled properly, the waste can lead to health hazards, pollution, and environmental damage." ;
+                 rdfs:label "Waste Management" ;
+                 rdfs:seeAlso "https://dbpedia.org/page/Waste_management" .
+
+
+###  http://www.amrita.edu/ontologies/fss#WaterDispenser
+:WaterDispenser rdf:type owl:Class ;
+                rdfs:subClassOf :KitchenEssentials ;
+                rdfs:label "Water Dispenser" .
+
+
+###  http://www.amrita.edu/ontologies/fss#WeeklyMaintanence
+:WeeklyMaintanence rdf:type owl:Class ;
+                   rdfs:subClassOf :Maintanence ;
+                   rdfs:comment "Corrective maintenance undertaken when equipment malfunctions or fails during operation." ;
+                   rdfs:label "Weekly Maintainence" .
+
+
+###  http://www.amrita.edu/ontologies/fss#Weighing
+:Weighing rdf:type owl:Class ;
+          rdfs:subClassOf :Pre-Production .
+
+
+###  http://www.amrita.edu/ontologies/fss#WholesaleBuying
+:WholesaleBuying rdf:type owl:Class ;
+                 rdfs:subClassOf :FoodPurchase ;
+                 rdfs:comment "A contract is being signed between the buyer and the wholesaler promising the purchase of goods for a specific period, defining the quantities and the regular time intervals." ;
+                 rdfs:label "Wholesale Buying" .
+
+
+###  http://www.amrita.edu/ontologies/fss#WireWhip
+:WireWhip rdf:type owl:Class ;
+          rdfs:subClassOf :KitchenEssentials .
+
+
+###  http://www.amrita.edu/ontologies/fss#Wok
+:Wok rdf:type owl:Class ;
+     rdfs:subClassOf :KitchenEssentials ;
+     rdfs:comment "A versatile, round-bottomed cooking vessel traditionally used for stir-frying, sautéing, and deep-frying." .
+
+
+###  http://www.amrita.edu/ontologies/fss#Zester
+:Zester rdf:type owl:Class ;
+        rdfs:subClassOf :KitchenEssentials ;
+        rdfs:comment "A handheld tool used to scrape or grate the outer peel (zest) of citrus fruits." .
+
+
+###  http://www.amrita.edu/ontologies/fss#FoodStandards&Regulation
+<http://www.amrita.edu/ontologies/fss#FoodStandards&Regulation> rdf:type owl:Class ;
+                                                                rdfs:subClassOf :FoodSafety ;
+                                                                rdfs:comment "standards, protocols, and legal frameworks that govern food safety within institutional food services. Major regulatory frameworks include the Food Safety and Standards Authority of India (FSSAI), Hazard Analysis and Critical Control Point (HACCP), and Codex Alimentarius standards. Quality assurance frameworks such as ISO 22000 provide additional compliance mechanisms through auditing and licensing." ;
+                                                                rdfs:label "Food Standards & Regulation" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
